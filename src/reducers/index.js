@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
-import params from './params';
+import alert from './alert';
 import collections from './collections';
 
-const rootReducer = combineReducers({params, collections});
+const rootReducer = combineReducers({alert, collections});
 
 export default rootReducer;

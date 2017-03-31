@@ -34,24 +34,23 @@ export function hideAlert() {
   };
 }
 
-export function showAlert(message, description, type, closable, showIcon, showOnlyTheError) {
+export function showAlert(message) {
   return {
     type: SHOW_ALERT,
-    payload: { message, description, type, closable, showIcon, showOnlyTheError }
+    payload: { message }
   };
 }
 
 export function fetchListOfGalleries() {
   const url = getUrlListOfGalleries();
   const meta = {};
-  const errorParams = getDefaultErrorParams();
-  return doFetch(FETCH_LIST_OF_COLLECTIONS, url, meta, errorParams);
+  return doFetch(FETCH_LIST_OF_COLLECTIONS, url, meta);
 }
 
 /*
  * Auxiliar functions of actions creators
  ***/
-export function doFetch(type, url, meta={}, errorParams={}, method='GET') {
+export function doFetch(type, url, meta={}, method='GET') {
 
   // Redux Thunk will inject dispatch here:
   return dispatch => {
@@ -81,9 +80,8 @@ export function doFetch(type, url, meta={}, errorParams={}, method='GET') {
       });
 
       //Show alert
-      const { description, typeOfError, closable, showIcon, showOnlyTheError } = errorParams;
       const message = error.message + " with " + url;
-      dispatch(showAlert(message, description, typeOfError, closable, showIcon, showOnlyTheError));
+      dispatch(showAlert(message));
       throw error;
     }
 
@@ -101,14 +99,4 @@ export function doFetch(type, url, meta={}, errorParams={}, method='GET') {
 
 export function getUrlListOfGalleries() {
   return `${API_ROOT_URL}/${API_COLLECTIONS_GETTREE}`;
-}
-
-export function getDefaultErrorParams() {
-  return {
-    message: "Error",
-    typeOfError: "error",
-    closable: true,
-    showIcon: true,
-    showOnlyTheError: false
-  }
 }

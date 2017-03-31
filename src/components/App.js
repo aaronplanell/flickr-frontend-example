@@ -34,15 +34,16 @@ class App extends Component {
   }
 
   render() {
+    let { alert, collections } = this.props;
     return (
       <div id="main" className="App" style={{height: '100%'}}>
         <Navigation />
         <section style={{height: '100%'}}>
           <Header />
-          <Article />
+          <Article alert={alert}/>
           <Footer />
         </section>
-        <Aside />
+        <Aside collections={collections}/>
       </div>
     );
   }
@@ -50,8 +51,8 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    collections: state.collections,
-    params: state.params
+    alert: state.alert,
+    collections: state.collections
   }
 }
 
