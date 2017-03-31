@@ -23,7 +23,7 @@ export const FETCH_LIST_OF_COLLECTIONS = 'FETCH_LIST_OF_COLLECTIONS'
 export const FETCH_LIST_OF_COLLECTIONS_REQUEST = 'FETCH_LIST_OF_COLLECTIONS/REQUEST';
 export const FETCH_LIST_OF_COLLECTIONS_SUCCESS = 'FETCH_LIST_OF_COLLECTIONS/SUCCESS';
 export const FETCH_LIST_OF_COLLECTIONS_FAILURE = 'FETCH_LIST_OF_COLLECTIONS/FAILURE';
-
+export const SELECT_COLLECTION = 'SELECT_COLLECTION';
 
 /*
  * List of actions creators
@@ -45,6 +45,13 @@ export function fetchListOfGalleries() {
   const url = getUrlListOfGalleries();
   const meta = {};
   return doFetch(FETCH_LIST_OF_COLLECTIONS, url, meta);
+}
+
+export function selectCollection(idCollection) {
+  return {
+    type: SELECT_COLLECTION,
+    payload: { idCollection }
+  }
 }
 
 /*

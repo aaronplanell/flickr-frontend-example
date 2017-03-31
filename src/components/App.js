@@ -12,7 +12,7 @@ import Footer from './sections/Footer';
 import Aside from './sections/Aside';
 
 // Actions
-import { fetchListOfGalleries } from '../actions';
+import { fetchListOfGalleries, selectCollection } from '../actions';
 
 class App extends Component {
 
@@ -34,7 +34,7 @@ class App extends Component {
   }
 
   render() {
-    let { alert, collections } = this.props;
+    let { alert, collections, selectCollection } = this.props;
     return (
       <div id="main" className="App" style={{height: '100%'}}>
         <Navigation />
@@ -43,7 +43,7 @@ class App extends Component {
           <Article alert={alert}/>
           <Footer />
         </section>
-        <Aside collections={collections}/>
+        <Aside collections={collections} selectCollection={selectCollection}/>
       </div>
     );
   }
@@ -56,4 +56,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { fetchListOfGalleries })(App);
+export default connect(mapStateToProps, { fetchListOfGalleries, selectCollection })(App);
