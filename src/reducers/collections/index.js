@@ -4,8 +4,8 @@ export default function(state = {}, action) {
   switch (action.type) {
     case FETCH_LIST_OF_COLLECTIONS_SUCCESS:
       if (action.payload && action.payload.response && action.payload.response.data) {
-        const { collections } = action.payload.response.data;
-        if (collections) return collections;
+        const { stat, collections } = action.payload.response.data;
+        if (stat === 'ok') return collections;
       }
       return {};
 

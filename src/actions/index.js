@@ -4,7 +4,7 @@ import qs from 'qs';
 /*
  * Configuration
  ***/
-import { API_COLLECTIONS_GETTREE } from '../config/constants';
+import { API_COLLECTIONS_GETTREE, API_COLLECTIONS_GETINFO } from '../config/constants';
 
 // Default config values (for npm start)
 let { API_ROOT_URL } = require(`../config/enviroment/development.js`);
@@ -24,6 +24,10 @@ export const FETCH_LIST_OF_COLLECTIONS_REQUEST = 'FETCH_LIST_OF_COLLECTIONS/REQU
 export const FETCH_LIST_OF_COLLECTIONS_SUCCESS = 'FETCH_LIST_OF_COLLECTIONS/SUCCESS';
 export const FETCH_LIST_OF_COLLECTIONS_FAILURE = 'FETCH_LIST_OF_COLLECTIONS/FAILURE';
 export const SELECT_COLLECTION = 'SELECT_COLLECTION';
+export const FETCH_PHOTOS_BY_COLLECTION = 'FETCH_PHOTOS_BY_COLLECTION'
+export const FETCH_PHOTOS_BY_COLLECTION_REQUEST = 'FETCH_PHOTOS_BY_COLLECTION/REQUEST';
+export const FETCH_PHOTOS_BY_COLLECTION_SUCCESS = 'FETCH_PHOTOS_BY_COLLECTION/SUCCESS';
+export const FETCH_PHOTOS_BY_COLLECTION_FAILURE = 'FETCH_PHOTOS_BY_COLLECTION/FAILURE';
 
 /*
  * List of actions creators
@@ -50,8 +54,14 @@ export function fetchListOfGalleries() {
 export function selectCollection(idCollection) {
   return {
     type: SELECT_COLLECTION,
-    payload: { idCollection }
+    payload: { collection_id: idCollection }
   }
+}
+
+export function fetchPhotosByCollection(idCollection) {
+  const url = getUrlPhotosByCollection(idCollection);
+  const meta = {idCollection};
+  return doFetch(FETCH_PHOTOS_BY_COLLECTION, url, meta);
 }
 
 /*
@@ -106,4 +116,8 @@ export function doFetch(type, url, meta={}, method='GET') {
 
 export function getUrlListOfGalleries() {
   return `${API_ROOT_URL}/${API_COLLECTIONS_GETTREE}`;
+}
+
+export function getUrlPhotosByCollection(idCollection) {
+  return `${API_ROOT_URL}/${API_COLLECTIONS_GETINFO}?collection_id=${idCollection}`;
 }
