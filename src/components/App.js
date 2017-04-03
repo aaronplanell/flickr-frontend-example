@@ -12,7 +12,7 @@ import Footer from './sections/Footer';
 import Aside from './sections/Aside';
 
 // Actions
-import { fetchListOfPhotosets, selectPhotoset, fetchPhotosByPhotoset } from '../actions';
+import { fetchListOfPhotosets, selectPhotoset, fetchPhotosByPhotoset, getSizesOfAllPhotos, fetchSizesOfAPhoto } from '../actions';
 
 class App extends Component {
 
@@ -33,8 +33,20 @@ class App extends Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    const { params, photos, getSizesOfAllPhotos, fetchSizesOfAPhoto } = nextProps;
+    const { updateSizesOfPhotos } = params;
+    if (updateSizesOfPhotos) {
+      photos.map( (photo) => {
+        const { id } = photo;
+        return fetchSizesOfAPhoto(id);
+      });
+      getSizesOfAllPhotos(false);
+    };
+  }
+
   render() {
-    let { alert, photosets, selectPhotoset, fetchPhotosByPhotoset } = this.props;
+    let { alert, photosets, selectPhotoset, fetchPhotosByPhotoset, getSizesOfAllPhotos } = this.props;
     return (
       <div id="main" className="App" style={{height: '100%'}}>
         <Navigation />
@@ -43,7 +55,7 @@ class App extends Component {
           <Article alert={alert} />
           <Footer />
         </section>
-        <Aside photosets={photosets} selectPhotoset={selectPhotoset} fetchPhotosByPhotoset={fetchPhotosByPhotoset}/>
+        <Aside photosets={photosets} selectPhotoset={selectPhotoset} fetchPhotosByPhotoset={fetchPhotosByPhotoset} getSizesOfAllPhotos={getSizesOfAllPhotos}/>
       </div>
     );
   }
@@ -51,9 +63,8 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    alert: state.alert,
-    photosets: state.photosets
+    ...state
   }
 }
 
-export default connect(mapStateToProps, { fetchListOfPhotosets, selectPhotoset, fetchPhotosByPhotoset })(App);
+export default connect(mapStateToProps, { fetchListOfPhotosets, selectPhotoset, fetchPhotosByPhotoset, getSizesOfAllPhotos, fetchSizesOfAPhoto })(App);

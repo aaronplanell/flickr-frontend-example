@@ -1,6 +1,6 @@
 import React from 'react';
 
-const getListOfPhotosets = (photosets, selectPhotoset, fetchPhotosByPhotoset) => {
+const getListOfPhotosets = (photosets, selectPhotoset, fetchPhotosByPhotoset, getSizesOfAllPhotos) => {
   if (!photosets.hasOwnProperty('photoset')) {
     return '';
   } else {
@@ -11,7 +11,10 @@ const getListOfPhotosets = (photosets, selectPhotoset, fetchPhotosByPhotoset) =>
           <a href="#" className="btn"
             onClick={() => {
             selectPhotoset(id);
-            fetchPhotosByPhotoset(id);
+            fetchPhotosByPhotoset(id).then(
+              success => { getSizesOfAllPhotos(true) },
+              error => { throw error }
+            );
             }}>
             {title._content}
           </a>
@@ -21,11 +24,11 @@ const getListOfPhotosets = (photosets, selectPhotoset, fetchPhotosByPhotoset) =>
   }
 }
 
-const Aside = ({photosets, selectPhotoset, fetchPhotosByPhotoset}) => {
+const Aside = ({photosets, selectPhotoset, fetchPhotosByPhotoset, getSizesOfAllPhotos}) => {
   return (
     <aside>
       <ul >
-        {getListOfPhotosets(photosets, selectPhotoset, fetchPhotosByPhotoset)}
+        {getListOfPhotosets(photosets, selectPhotoset, fetchPhotosByPhotoset, getSizesOfAllPhotos)}
       </ul>
     </aside>
   );
@@ -34,7 +37,8 @@ const Aside = ({photosets, selectPhotoset, fetchPhotosByPhotoset}) => {
 Aside.propTypes = {
   photosets: React.PropTypes.object.isRequired,
   selectPhotoset: React.PropTypes.func.isRequired,
-  fetchPhotosByPhotoset: React.PropTypes.func.isRequired
+  fetchPhotosByPhotoset: React.PropTypes.func.isRequired,
+  getSizesOfAllPhotos: React.PropTypes.func.isRequired
 }
 
 export default Aside;
