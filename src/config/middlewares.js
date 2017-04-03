@@ -38,7 +38,7 @@ function getMiddlewaresThunk() {
 }
 
 /*
- * Returns the collection of middlewares
+ * Returns the list of middlewares
  ***/
 export default function getMiddlewares() {
   switch (enviroment) {

@@ -4,7 +4,7 @@ import qs from 'qs';
 /*
  * Configuration
  ***/
-import { API_COLLECTIONS_GETTREE, API_COLLECTIONS_GETINFO } from '../config/constants';
+import { API_PHOTOSETS_GETLIST, API_PHOTOSETS_GETPHOTOS } from '../config/constants';
 
 // Default config values (for npm start)
 let { API_ROOT_URL } = require(`../config/enviroment/development.js`);
@@ -19,15 +19,15 @@ if (process && process.env && process.env.REACT_APP_ENVIROMENT) {
  ***/
 export const SHOW_ALERT = 'SHOW_ALERT';
 export const HIDE_ALERT = 'HIDE_ALERT';
-export const FETCH_LIST_OF_COLLECTIONS = 'FETCH_LIST_OF_COLLECTIONS'
-export const FETCH_LIST_OF_COLLECTIONS_REQUEST = 'FETCH_LIST_OF_COLLECTIONS/REQUEST';
-export const FETCH_LIST_OF_COLLECTIONS_SUCCESS = 'FETCH_LIST_OF_COLLECTIONS/SUCCESS';
-export const FETCH_LIST_OF_COLLECTIONS_FAILURE = 'FETCH_LIST_OF_COLLECTIONS/FAILURE';
-export const SELECT_COLLECTION = 'SELECT_COLLECTION';
-export const FETCH_PHOTOS_BY_COLLECTION = 'FETCH_PHOTOS_BY_COLLECTION'
-export const FETCH_PHOTOS_BY_COLLECTION_REQUEST = 'FETCH_PHOTOS_BY_COLLECTION/REQUEST';
-export const FETCH_PHOTOS_BY_COLLECTION_SUCCESS = 'FETCH_PHOTOS_BY_COLLECTION/SUCCESS';
-export const FETCH_PHOTOS_BY_COLLECTION_FAILURE = 'FETCH_PHOTOS_BY_COLLECTION/FAILURE';
+export const FETCH_LIST_OF_PHOTOSETS = 'FETCH_LIST_OF_PHOTOSETS'
+export const FETCH_LIST_OF_PHOTOSETS_REQUEST = 'FETCH_LIST_OF_PHOTOSETS/REQUEST';
+export const FETCH_LIST_OF_PHOTOSETS_SUCCESS = 'FETCH_LIST_OF_PHOTOSETS/SUCCESS';
+export const FETCH_LIST_OF_PHOTOSETS_FAILURE = 'FETCH_LIST_OF_PHOTOSETS/FAILURE';
+export const SELECT_PHOTOSET = 'SELECT_PHOTOSET';
+export const FETCH_PHOTOS_BY_PHOTOSET = 'FETCH_PHOTOS_BY_PHOTOSET'
+export const FETCH_PHOTOS_BY_PHOTOSET_REQUEST = 'FETCH_PHOTOS_BY_PHOTOSET/REQUEST';
+export const FETCH_PHOTOS_BY_PHOTOSET_SUCCESS = 'FETCH_PHOTOS_BY_PHOTOSET/SUCCESS';
+export const FETCH_PHOTOS_BY_PHOTOSET_FAILURE = 'FETCH_PHOTOS_BY_PHOTOSET/FAILURE';
 
 /*
  * List of actions creators
@@ -45,23 +45,23 @@ export function showAlert(message) {
   };
 }
 
-export function fetchListOfGalleries() {
-  const url = getUrlListOfGalleries();
+export function fetchListOfPhotosets() {
+  const url = getUrlListOfPhotosets();
   const meta = {};
-  return doFetch(FETCH_LIST_OF_COLLECTIONS, url, meta);
+  return doFetch(FETCH_LIST_OF_PHOTOSETS, url, meta);
 }
 
-export function selectCollection(idCollection) {
+export function selectPhotoset(idPhotoset) {
   return {
-    type: SELECT_COLLECTION,
-    payload: { collection_id: idCollection }
+    type: SELECT_PHOTOSET,
+    payload: { photoset_id: idPhotoset }
   }
 }
 
-export function fetchPhotosByCollection(idCollection) {
-  const url = getUrlPhotosByCollection(idCollection);
-  const meta = {idCollection};
-  return doFetch(FETCH_PHOTOS_BY_COLLECTION, url, meta);
+export function fetchPhotosByPhotoset(idPhotoset) {
+  const url = getUrlPhotosByPhotoset(idPhotoset);
+  const meta = {idPhotoset};
+  return doFetch(FETCH_PHOTOS_BY_PHOTOSET, url, meta);
 }
 
 /*
@@ -114,10 +114,10 @@ export function doFetch(type, url, meta={}, method='GET') {
   }
 }
 
-export function getUrlListOfGalleries() {
-  return `${API_ROOT_URL}/${API_COLLECTIONS_GETTREE}`;
+export function getUrlListOfPhotosets() {
+  return `${API_ROOT_URL}/${API_PHOTOSETS_GETLIST}`;
 }
 
-export function getUrlPhotosByCollection(idCollection) {
-  return `${API_ROOT_URL}/${API_COLLECTIONS_GETINFO}?collection_id=${idCollection}`;
+export function getUrlPhotosByPhotoset(idPhotoset) {
+  return `${API_ROOT_URL}/${API_PHOTOSETS_GETPHOTOS}?photoset_id=${idPhotoset}`;
 }

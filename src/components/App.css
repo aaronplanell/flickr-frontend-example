@@ -32,9 +32,10 @@ body {
 						flex: 1 6 10%;
 				-webkit-order: 1;
 	order: 1;
-	width: 100px;
-	min-height: 50px;
-	max-width: 150px;
+	font-size: 16px;
+	font-style: center;
+	text-align:center;
+  max-width: 150px;
 }
 
 #main > section, article {
@@ -67,7 +68,7 @@ body {
 	font-size: 16px;
 	font-style: center;
 	text-align:center;
-  max-width: 200px;
+  max-width: 150px;
 }
 
 #main > aside > img {
@@ -110,6 +111,34 @@ footer {
   font-size: 12px;
 }
 
+/* Link as a button */
+a.btn {
+	display: 	-webkit-flex;
+	display:         	flex;
+				-webkit-flex-flow: row;
+				flex-flow: row;
+	color: #666;
+	background-color: #eee;
+	letter-spacing: 2px;
+	font-size: 12px;
+	padding: 10px 10px;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border: 1px solid rgba(0,0,0,0.3);
+	border-bottom-width: 3px;
+	min-width: 80px;
+}
+
+a.btn:hover {
+	background-color: #e3e3e3;
+	border-color: rgba(0,0,0,0.5);
+}
+
+a.btn:active {
+	background-color: #CCC;
+	border-color: rgba(0,0,0,0.9);
+}
 
 /* Too narrow to support three columns */
 @media all and (max-width: 768px) {

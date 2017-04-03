@@ -1,13 +1,13 @@
-import { SELECT_COLLECTION } from '../../actions';
+import { SELECT_PHOTOSET } from '../../actions';
 
 export default function(state = {
-  idCollection: ""
+  idPhotoset: ""
 }, action) {
   switch (action.type) {
 
-    case SELECT_COLLECTION:
-      const { idCollection } = action.payload;
-      return { ...state, idCollection }
+    case SELECT_PHOTOSET:
+      const { idPhotoset } = action.payload;
+      return { ...state, idPhotoset }
 
     default:
       return state;

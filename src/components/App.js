@@ -12,29 +12,29 @@ import Footer from './sections/Footer';
 import Aside from './sections/Aside';
 
 // Actions
-import { fetchListOfGalleries, selectCollection, fetchPhotosByCollection } from '../actions';
+import { fetchListOfPhotosets, selectPhotoset, fetchPhotosByPhotoset } from '../actions';
 
 class App extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      isListOfGalleriesLoading: false
+      isListOfPhotosetsLoading: false
     }
-    fetchListOfGalleries();
+    fetchListOfPhotosets();
   }
 
   componentDidMount() {
-    const { isListOfGalleriesLoaded } = this.state;
-    const { fetchListOfGalleries } = this.props;
-    if (!isListOfGalleriesLoaded) {
-      this.setState({...this.state, isListOfGalleriesLoaded: true});
-      fetchListOfGalleries();
+    const { isListOfPhotosetsLoaded } = this.state;
+    const { fetchListOfPhotosets } = this.props;
+    if (!isListOfPhotosetsLoaded) {
+      this.setState({...this.state, isListOfPhotosetsLoaded: true});
+      fetchListOfPhotosets();
     }
   }
 
   render() {
-    let { alert, collections, selectCollection, fetchPhotosByCollection } = this.props;
+    let { alert, photosets, selectPhotoset, fetchPhotosByPhotoset } = this.props;
     return (
       <div id="main" className="App" style={{height: '100%'}}>
         <Navigation />
@@ -43,7 +43,7 @@ class App extends Component {
           <Article alert={alert} />
           <Footer />
         </section>
-        <Aside collections={collections} selectCollection={selectCollection} fetchPhotosByCollection={fetchPhotosByCollection}/>
+        <Aside photosets={photosets} selectPhotoset={selectPhotoset} fetchPhotosByPhotoset={fetchPhotosByPhotoset}/>
       </div>
     );
   }
@@ -52,8 +52,8 @@ class App extends Component {
 const mapStateToProps = (state) => {
   return {
     alert: state.alert,
-    collections: state.collections
+    photosets: state.photosets
   }
 }
 
-export default connect(mapStateToProps, { fetchListOfGalleries, selectCollection, fetchPhotosByCollection })(App);
+export default connect(mapStateToProps, { fetchListOfPhotosets, selectPhotoset, fetchPhotosByPhotoset })(App);
