@@ -7,8 +7,7 @@ const getListOfPhotosets = (photosets, selectPhotoset, fetchPhotosByPhotoset, ge
     return photosets.photoset.map( (photoset) => {
       const { id, title } = photoset;
       return (
-        <li key={id} style={{paddingTop: '10px', textAlign: 'center'}}>
-          <a href="#" className="btn"
+          <a href="#" className="btn" 
             onClick={() => {
             selectPhotoset(id);
             fetchPhotosByPhotoset(id).then(
@@ -21,7 +20,6 @@ const getListOfPhotosets = (photosets, selectPhotoset, fetchPhotosByPhotoset, ge
             }}>
             {title._content}
           </a>
-        </li>
       );
     })
   }
@@ -30,9 +28,7 @@ const getListOfPhotosets = (photosets, selectPhotoset, fetchPhotosByPhotoset, ge
 const Aside = ({photosets, selectPhotoset, fetchPhotosByPhotoset, getSizesOfAllPhotos, selectPhoto}) => {
   return (
     <aside>
-      <ul >
         {getListOfPhotosets(photosets, selectPhotoset, fetchPhotosByPhotoset, getSizesOfAllPhotos, selectPhoto)}
-      </ul>
     </aside>
   );
 }
