@@ -39,6 +39,7 @@ export const FETCH_SIZES_OF_A_PHOTO_FAILURE = 'FETCH_SIZES_OF_A_PHOTO/FAILURE';
 
 export const SELECT_VIEW_SIZE = 'SELECT_VIEW_SIZE';
 
+export const SELECT_PHOTO = 'SELECT_PHOTO';
 
 /*
  * List of actions creators
@@ -92,6 +93,13 @@ export function selectViewSize(currentViewSize) {
   return {
     type: SELECT_VIEW_SIZE,
     payload: { currentViewSize }
+  }
+}
+
+export function selectPhoto(selectedPhoto) {
+  return {
+    type: SELECT_PHOTO,
+    payload: { selectedPhoto }
   }
 }
 

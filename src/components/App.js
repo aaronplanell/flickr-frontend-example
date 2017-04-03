@@ -12,7 +12,15 @@ import Footer from './sections/Footer';
 import Aside from './sections/Aside';
 
 // Actions
-import { fetchListOfPhotosets, selectPhotoset, fetchPhotosByPhotoset, getSizesOfAllPhotos, fetchSizesOfAPhoto, selectViewSize } from '../actions';
+import {
+  fetchListOfPhotosets,
+  selectPhotoset,
+  fetchPhotosByPhotoset,
+  getSizesOfAllPhotos,
+  fetchSizesOfAPhoto,
+  selectViewSize,
+  selectPhoto
+} from '../actions';
 
 // selectorOfPhotosBySize
 import { selectorOfPhotosBySize } from '../reducers/photos';
@@ -49,8 +57,19 @@ class App extends Component {
   }
 
   render() {
-    const { alert, params, photosets, selectPhotoset, fetchPhotosByPhotoset, getSizesOfAllPhotos, selectedPhotos, selectViewSize } = this.props;
+    const {
+      alert,
+      params,
+      photosets,
+      selectPhotoset,
+      fetchPhotosByPhotoset,
+      getSizesOfAllPhotos,
+      selectedPhotos,
+      selectViewSize,
+      selectPhoto
+    } = this.props;
     const { currentViewSize } = params;
+
     return (
       <div id="main" className="App" style={{height: '100%'}}>
         <Navigation
@@ -69,6 +88,7 @@ class App extends Component {
             alert={alert}
             selectedPhotos={selectedPhotos}
             currentViewSize={currentViewSize}
+            selectPhoto={selectPhoto}
           />
           <Footer />
         </section>
@@ -84,4 +104,12 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { fetchListOfPhotosets, selectPhotoset, fetchPhotosByPhotoset, getSizesOfAllPhotos, fetchSizesOfAPhoto, selectViewSize })(App);
+export default connect(mapStateToProps, {
+  fetchListOfPhotosets,
+  selectPhotoset,
+  fetchPhotosByPhotoset,
+  getSizesOfAllPhotos,
+  fetchSizesOfAPhoto,
+  selectViewSize,
+  selectPhoto
+})(App);

@@ -52,7 +52,8 @@ export const selectorOfPhotosBySize = (photos, size = DEFAULT_VIEW_SIZE) => {
     if (sizes && sizes.size && sizes.size.length > size && sizes.size[size].hasOwnProperty('source')) {
       return {
         id,
-        source: sizes.size[size].source
+        source: sizes.size[size].source,
+        original: sizes.size[sizes.size.length-1].source
       };
     } else {
       return null;
