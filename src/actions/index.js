@@ -37,6 +37,9 @@ export const FETCH_SIZES_OF_A_PHOTO_REQUEST = 'FETCH_SIZES_OF_A_PHOTO/REQUEST';
 export const FETCH_SIZES_OF_A_PHOTO_SUCCESS = 'FETCH_SIZES_OF_A_PHOTO/SUCCESS';
 export const FETCH_SIZES_OF_A_PHOTO_FAILURE = 'FETCH_SIZES_OF_A_PHOTO/FAILURE';
 
+export const SELECT_VIEW_SIZE = 'SELECT_VIEW_SIZE';
+
+
 /*
  * List of actions creators
  ***/
@@ -83,6 +86,13 @@ export function fetchSizesOfAPhoto(idPhoto) {
   const url = getUrlSizesOfPhoto(idPhoto);
   const meta = {idPhoto};
   return doFetch(FETCH_SIZES_OF_A_PHOTO, url, meta);
+}
+
+export function selectViewSize(currentViewSize) {
+  return {
+    type: SELECT_VIEW_SIZE,
+    payload: { currentViewSize }
+  }
 }
 
 /*

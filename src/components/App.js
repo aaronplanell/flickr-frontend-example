@@ -12,7 +12,10 @@ import Footer from './sections/Footer';
 import Aside from './sections/Aside';
 
 // Actions
-import { fetchListOfPhotosets, selectPhotoset, fetchPhotosByPhotoset, getSizesOfAllPhotos, fetchSizesOfAPhoto } from '../actions';
+import { fetchListOfPhotosets, selectPhotoset, fetchPhotosByPhotoset, getSizesOfAllPhotos, fetchSizesOfAPhoto, selectViewSize } from '../actions';
+
+// selectorOfPhotosBySize
+import { selectorOfPhotosBySize } from '../reducers/photos';
 
 class App extends Component {
 
@@ -46,16 +49,29 @@ class App extends Component {
   }
 
   render() {
-    let { alert, photosets, selectPhotoset, fetchPhotosByPhotoset, getSizesOfAllPhotos } = this.props;
+    const { alert, params, photosets, selectPhotoset, fetchPhotosByPhotoset, getSizesOfAllPhotos, selectedPhotos, selectViewSize } = this.props;
+    const { currentViewSize } = params;
     return (
       <div id="main" className="App" style={{height: '100%'}}>
-        <Navigation />
+        <Navigation
+          selectViewSize={selectViewSize}
+          currentViewSize={currentViewSize}
+        />
+        <Aside
+          photosets={photosets}
+          selectPhotoset={selectPhotoset}
+          fetchPhotosByPhotoset={fetchPhotosByPhotoset}
+          getSizesOfAllPhotos={getSizesOfAllPhotos}
+        />
         <section style={{height: '100%'}}>
           <Header />
-          <Article alert={alert} />
+          <Article
+            alert={alert}
+            selectedPhotos={selectedPhotos}
+            currentViewSize={currentViewSize}
+          />
           <Footer />
         </section>
-        <Aside photosets={photosets} selectPhotoset={selectPhotoset} fetchPhotosByPhotoset={fetchPhotosByPhotoset} getSizesOfAllPhotos={getSizesOfAllPhotos}/>
       </div>
     );
   }
@@ -63,8 +79,9 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    ...state
+    ...state,
+    selectedPhotos: selectorOfPhotosBySize(state.photos, state.params.currentViewSize)
   }
 }
 
-export default connect(mapStateToProps, { fetchListOfPhotosets, selectPhotoset, fetchPhotosByPhotoset, getSizesOfAllPhotos, fetchSizesOfAPhoto })(App);
+export default connect(mapStateToProps, { fetchListOfPhotosets, selectPhotoset, fetchPhotosByPhotoset, getSizesOfAllPhotos, fetchSizesOfAPhoto, selectViewSize })(App);

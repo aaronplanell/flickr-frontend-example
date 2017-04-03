@@ -1,5 +1,6 @@
 import { FETCH_PHOTOS_BY_PHOTOSET_SUCCESS, FETCH_PHOTOS_BY_PHOTOSET_FAILURE } from '../../actions';
 import { FETCH_SIZES_OF_A_PHOTO_SUCCESS, FETCH_SIZES_OF_A_PHOTO_FAILURE } from '../../actions';
+import { DEFAULT_VIEW_SIZE } from '../../config/constants'
 
 const updateSizes = (photo, idPhoto, sizes) =>{
   if (idPhoto !== photo.id) {
@@ -43,4 +44,18 @@ export default function(state = [], action) {
     default:
       return state;
   }
+}
+
+export const selectorOfPhotosBySize = (photos, size = DEFAULT_VIEW_SIZE) => {
+  return photos.map ( photo => {
+    const { id, sizes } = photo;
+    if (sizes && sizes.size && sizes.size.length > size && sizes.size[size].hasOwnProperty('source')) {
+      return {
+        id,
+        source: sizes.size[size].source
+      };
+    } else {
+      return null;
+    }
+  }).filter( photo => photo !== null);
 }
