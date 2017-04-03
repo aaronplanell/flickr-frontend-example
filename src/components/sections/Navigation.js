@@ -27,9 +27,9 @@ const Navigation = ({selectViewSize, currentViewSize}) => (
   </nav>
 );
 
-export default Navigation;
-
 Navigation.propTypes = {
   selectViewSize: React.PropTypes.func.isRequired,
   currentViewSize: React.PropTypes.number
 }
+
+export default Navigation;

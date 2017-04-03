@@ -68,7 +68,7 @@ class App extends Component {
       selectViewSize,
       selectPhoto
     } = this.props;
-    const { currentViewSize } = params;
+    const { currentViewSize, selectedPhoto } = params;
 
     return (
       <div id="main" className="App" style={{height: '100%'}}>
@@ -81,6 +81,7 @@ class App extends Component {
           selectPhotoset={selectPhotoset}
           fetchPhotosByPhotoset={fetchPhotosByPhotoset}
           getSizesOfAllPhotos={getSizesOfAllPhotos}
+          selectPhoto={selectPhoto}
         />
         <section style={{height: '100%'}}>
           <Header />
@@ -89,6 +90,7 @@ class App extends Component {
             selectedPhotos={selectedPhotos}
             currentViewSize={currentViewSize}
             selectPhoto={selectPhoto}
+            selectedPhoto={selectedPhoto}
           />
           <Footer />
         </section>

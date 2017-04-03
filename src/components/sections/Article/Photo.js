@@ -17,4 +17,9 @@ const Photo = ({photo, selectPhoto}) => (
   />
 );
 
+Photo.propTypes = {
+  photo: React.PropTypes.object.isRequired,
+  selectPhoto: React.PropTypes.func.isRequired
+}
+
 export default Photo;
