@@ -1,5 +1,5 @@
 import { SELECT_PHOTOSET, GET_SIZES_OF_ALL_PHOTOS, SELECT_VIEW_SIZE, SELECT_PHOTO } from '../../actions';
-import { DEFAULT_VIEW_SIZE } from '../../config/constants'
+import { DEFAULT_VIEW_SIZE } from '../../config/constants';
 
 export default function(state = {
   idPhotoset: "",

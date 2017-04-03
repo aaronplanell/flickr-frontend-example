@@ -2,7 +2,7 @@ import { FETCH_PHOTOS_BY_PHOTOSET_SUCCESS, FETCH_PHOTOS_BY_PHOTOSET_FAILURE } fr
 import { FETCH_SIZES_OF_A_PHOTO_SUCCESS, FETCH_SIZES_OF_A_PHOTO_FAILURE } from '../../actions';
 import { DEFAULT_VIEW_SIZE } from '../../config/constants'
 
-const updateSizes = (photo, idPhoto, sizes) =>{
+export const updateSizes = (photo, idPhoto, sizes) =>{
   if (idPhoto !== photo.id) {
     return photo;
   } else {
