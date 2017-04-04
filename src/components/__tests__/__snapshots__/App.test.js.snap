@@ -1,0 +1,48 @@
+exports[`test App Snapshot matchs 1`] = `
+<div
+  className="App"
+  id="main"
+  style={
+    Object {
+      "height": "100%",
+    }
+  }>
+  <div />
+  <div />
+  <section
+    style={
+      Object {
+        "height": "100%",
+      }
+    }>
+    <header>
+      <strong>
+        Flickr Frontend Example
+      </strong>
+    </header>
+    <div />
+    <footer>
+      <a
+        href="mailto:aaronplanell@gmail.com"
+        style={
+          Object {
+            "paddingRight": "5px",
+          }
+        }>
+        aaronplanell@gmail.com
+      </a>
+      ···
+      <a
+        href="https://github.com/aaronplanell/flickr-frontend-example"
+        style={
+          Object {
+            "paddingLeft": "5px",
+          }
+        }
+        target="_blank">
+        https://github.com/aaronplanell/flickr-frontend-example
+      </a>
+    </footer>
+  </section>
+</div>
+`;

@@ -1,0 +1,15 @@
+exports[`test Photo Snapshot matchs 1`] = `
+<img
+  alt={1234}
+  id={1234}
+  onClick={[Function]}
+  onMouseLeave={[Function]}
+  onMouseOver={[Function]}
+  src={undefined}
+  style={
+    Object {
+      "opacity": 0.9,
+      "paddingRight": "5px",
+    }
+  } />
+`;

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 // CSS
 import './App.css';
@@ -32,27 +33,35 @@ class App extends Component {
     this.state = {
       isListOfPhotosetsLoading: false
     }
+  }
+
+  fetchListOfPhotosets() {
+    const { fetchListOfPhotosets } = this.props;
     fetchListOfPhotosets();
   }
 
   componentDidMount() {
     const { isListOfPhotosetsLoaded } = this.state;
-    const { fetchListOfPhotosets } = this.props;
     if (!isListOfPhotosetsLoaded) {
       this.setState({...this.state, isListOfPhotosetsLoaded: true});
-      fetchListOfPhotosets();
+      this.fetchListOfPhotosets();
     }
   }
 
+  getSizesOfAllPhotos(value) {
+    const { getSizesOfAllPhotos } = this.props;
+    getSizesOfAllPhotos(value);
+  }
+
   componentWillReceiveProps(nextProps) {
-    const { params, photos, getSizesOfAllPhotos, fetchSizesOfAPhoto } = nextProps;
+    const { params, photos, fetchSizesOfAPhoto } = nextProps;
     const { updateSizesOfPhotos } = params;
     if (updateSizesOfPhotos) {
       photos.map( (photo) => {
         const { id } = photo;
         return fetchSizesOfAPhoto(id);
       });
-      getSizesOfAllPhotos(false);
+      this.getSizesOfAllPhotos(false);
     };
   }
 
@@ -106,12 +115,16 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, {
-  fetchListOfPhotosets,
-  selectPhotoset,
-  fetchPhotosByPhotoset,
-  getSizesOfAllPhotos,
-  fetchSizesOfAPhoto,
-  selectViewSize,
-  selectPhoto
-})(App);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({
+    fetchListOfPhotosets,
+    selectPhotoset,
+    fetchPhotosByPhotoset,
+    getSizesOfAllPhotos,
+    fetchSizesOfAPhoto,
+    selectViewSize,
+    selectPhoto
+  }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

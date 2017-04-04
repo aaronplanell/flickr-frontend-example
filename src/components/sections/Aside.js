@@ -7,7 +7,8 @@ const getListOfPhotosets = (photosets, selectPhotoset, fetchPhotosByPhotoset, ge
     return photosets.photoset.map( (photoset) => {
       const { id, title } = photoset;
       return (
-          <a href="#" className="btn" 
+          <a href="#" className="btn"
+            key={photoset.id}
             onClick={() => {
             selectPhotoset(id);
             fetchPhotosByPhotoset(id).then(

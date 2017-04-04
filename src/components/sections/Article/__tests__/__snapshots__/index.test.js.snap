@@ -1,0 +1,24 @@
+exports[`test Photo Snapshot matchs 1`] = `
+<div
+  style={
+    Object {
+      "height": "100%",
+      "position": "relative",
+      "width": "100%",
+      "zIndex": 1000,
+    }
+  }>
+  <img
+    alt={1234}
+    id={1234}
+    onClick={[Function]}
+    src="http://host:port/image.jpg"
+    style={
+      Object {
+        "display": "block",
+        "marginLeft": "auto",
+        "marginRight": "auto",
+      }
+    } />
+</div>
+`;

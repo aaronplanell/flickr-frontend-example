@@ -33,7 +33,7 @@ function getMiddlewaresThunkFreezeLoggerReactDevTools() {
  * Middleware with:
  * - Redux Thunk
  ***/
-function getMiddlewaresThunk() {
+export function getMiddlewaresThunk() {
   return applyMiddleware(thunk);
 }
 

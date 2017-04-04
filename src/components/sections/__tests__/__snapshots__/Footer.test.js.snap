@@ -1,0 +1,24 @@
+exports[`test Footer Snapshot matchs 1`] = `
+<footer>
+  <a
+    href="mailto:aaronplanell@gmail.com"
+    style={
+      Object {
+        "paddingRight": "5px",
+      }
+    }>
+    aaronplanell@gmail.com
+  </a>
+  ···
+  <a
+    href="https://github.com/aaronplanell/flickr-frontend-example"
+    style={
+      Object {
+        "paddingLeft": "5px",
+      }
+    }
+    target="_blank">
+    https://github.com/aaronplanell/flickr-frontend-example
+  </a>
+</footer>
+`;
