@@ -25,9 +25,9 @@ body {
   height: 100%;
 	margin: 4px;
 	padding: 5px;
-	border: 1px solid wheat;
+	border: 1px solid mediumseagreen;
 	border-radius: 7pt;
-	background: ivory;
+	background: mintcream;
 				-webkit-flex: 1 6 10%;
 						flex: 1 6 10%;
 				-webkit-order: 1;
@@ -41,10 +41,10 @@ body {
 #main > section, article {
 	margin: 4px;
 	padding: 5px;
-	border: 1px solid wheat;
+	border: 1px solid mediumseagreen;
 	border-radius: 7pt;
 	min-height: 100px;
-	background: ivory;
+	background: mintcream;
 				-webkit-flex: 3 1 75%;
 						flex: 3 1 75%;
 				-webkit-order: 2;
@@ -57,9 +57,9 @@ body {
   height: 100%;
 	margin: 4px;
 	padding: 5px;
-	border: 1px solid wheat;
+	border: 1px solid mediumseagreen;
 	border-radius: 7pt;
-	background: ivory;
+	background: mintcream;
 				-webkit-flex: 1 6 15%;
 						flex: 1 6 15%;
 				-webkit-order: 3;

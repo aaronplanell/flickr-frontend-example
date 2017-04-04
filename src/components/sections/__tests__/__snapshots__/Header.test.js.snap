@@ -1,7 +1,7 @@
 exports[`test Header Snapshot matchs 1`] = `
 <header>
   <strong>
-    Flickr Frontend Example
+    Select a type of Pockémon: water, fire, energy,... whatever!
   </strong>
 </header>
 `;

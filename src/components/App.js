@@ -93,7 +93,11 @@ class App extends Component {
           selectPhoto={selectPhoto}
         />
         <section style={{height: '100%'}}>
-          <Header />
+          <Header
+            photosets={photosets}
+            idPhotoset={params.idPhotoset}
+            selectedPhoto={params.selectedPhoto}            
+          />
           <Article
             alert={alert}
             selectedPhotos={selectedPhotos}

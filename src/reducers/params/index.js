@@ -10,8 +10,8 @@ export default function(state = {
   switch (action.type) {
 
     case SELECT_PHOTOSET:
-      const { idPhotoset } = action.payload;
-      return { ...state, idPhotoset }
+      const { photoset_id } = action.payload;
+      return { ...state, idPhotoset: photoset_id }
 
     case GET_SIZES_OF_ALL_PHOTOS:
       const { updateSizesOfPhotos } = action.payload;

@@ -20,7 +20,7 @@ describe('Params Reducer', () => {
     const action = {
       type: SELECT_PHOTOSET,
       payload: {
-        idPhotoset: '1234'
+        photoset_id: '1234'
       }
     };
     const initialState = undefined;
