@@ -1,13 +1,23 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const About = React.createClass({
+// CSS
+import './App.css';
+
+// Components
+import Navigation from './sections/Navigation';
+
+class About extends Component {
   render() {
     return (
-      <div>
-        <h1>About</h1>
+      <div id="main" className="App" style={{height: '100%'}}>
+        <Navigation />
+        <aside>
+          About
+        </aside>
       </div>
-    )
+    );
   }
-});
+}
+
 
 export default About;

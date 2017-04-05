@@ -29,7 +29,12 @@ if (module.hot && process.env.NODE_ENV==="development") {
   const NextApp = require('./components/App').default;
   ReactDOM.render(
     <Provider store={store}>
-      <NextApp loadMetadata={false}/>
+      <Router>
+        <div>
+          <Route exact path="/" component={NextApp} />
+          <Route exact path="/about" component={About} />
+        </div>
+      </Router>
     </Provider>,
     document.getElementById('root')
   );
