@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
+import Markdown from 'react-remarkable';
+import Navigation from './sections/Navigation';
 
 // CSS
 import './App.css';
 
-// Components
-import Navigation from './sections/Navigation';
-
 class About extends Component {
   render() {
     return (
-      <div id="main" className="App" style={{height: '100%'}}>
+      <div id="main" className="App">
         <Navigation />
-        <aside>
-          About
+        <aside style={{minWidth: '500px'}}>
+          <Markdown source="# flickr-frontend-example" />
         </aside>
       </div>
     );
