@@ -22,7 +22,12 @@ const getListOfPhotosets = (photosets, selectPhotoset, fetchPhotosByPhotoset, ge
             {title._content}
           </a>
       );
-    })
+    }).sort((a, b) => {
+      // Return the list ordered alphabetically
+      if(a.props.children < b.props.children) return -1;
+      if(a.props.children > b.props.children) return 1;
+      return 0;
+    });
   }
 }
 
