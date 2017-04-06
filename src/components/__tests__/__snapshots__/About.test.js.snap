@@ -30,7 +30,8 @@ exports[`test About Snapshot matchs 1`] = `
   <aside
     style={
       Object {
-        "minWidth": "500px",
+        "minWidth": "1000px",
+        "textAlign": "left",
       }
     }>
     <div>
@@ -38,6 +39,85 @@ exports[`test About Snapshot matchs 1`] = `
         dangerouslySetInnerHTML={
           Object {
             "__html": "<h1>flickr-frontend-example</h1>
+          <p>A frontend application with React for viewing a list of Pockémons grouped by their type.
+          It calls to its backend version <a href=\"https://github.com/aaronplanell/flickr-backend-example/\">flickr-backend-example</a></p>
+          <h2>Who is this project for?</h2>
+          <p>It is a good example of how using these tecnologies:</p>
+          <ul>
+          <li><a href=\"https://facebook.github.io/react/\">React</a></li>
+          <li><a href=\"https://github.com/facebookincubator/create-react-app\">Create-React-App</a></li>
+          <li><a href=\"https://github.com/ReactTraining/react-router\">React-Router v4.0.0</a> (the last version)</li>
+          <li>React middlewares like: <a href=\"https://github.com/gaearon/redux-thunk\">redux-thunk</a>, <a href=\"https://github.com/evgenyrodionov/redux-logger\">redux-logger</a>, <a href=\"https://github.com/buunguyen/redux-freeze\">redux-freeze</a> and <a href=\"https://github.com/arnaudbenard/redux-mock-store\">redux-mock-store</a></li>
+          <li><a href=\"https://facebook.github.io/jest/\">Jest</a>: Obviously with snapshots</li>
+          </ul>
+          <h2>How to install/configure the project?</h2>
+          <h3>Installation</h3>
+          <p>Just:</p>
+          <pre><code>$ git clone https://github.com/aaronplanell/flickr-frontend-example.git
+          $ cd flickr-frontend-example
+          $ npm install
+          </code></pre>
+          <p>Obviously, the last line can be replaced by:</p>
+          <pre><code>$ yarn install
+          </code></pre>
+          <h2>How to run the project?</h2>
+          <p>For running in development mode just run:</p>
+          <pre><code>$ npm start
+          </code></pre>
+          <p>Or:</p>
+          <pre><code>$ yarn start
+          </code></pre>
+          <p>Automagically the browser will be open with the application.</p>
+          <p><strong>Note</strong>: The development mode has Hot Reloading configured even with Redux Store :D</p>
+          <h2>How create an optimized production build ?</h2>
+          <p>For creating an optimized production build just run:</p>
+          <pre><code>$ npm run build
+          </code></pre>
+          <p>Or:</p>
+          <pre><code>$ yarn build
+          </code></pre>
+          <p>You will see a message like:</p>
+          <pre><code>The build folder is ready to be deployed.
+          
+          Starting up http-server, serving ./build
+          Available on:
+            http://127.0.0.1:3001
+            http://192.168.1.2:3001
+          Hit CTRL-C to stop the server
+          
+          </code></pre>
+          <p><strong>Note</strong>: The production mode has only the Redux Thunk middleware.</p>
+          <h2>How to test the project?</h2>
+          <p>Easy... Just.</p>
+          <pre><code>npm run test
+          </code></pre>
+          <p>Or:</p>
+          <pre><code>yarn test
+          </code></pre>
+          <p>You will find all the tests in differents <strong>tests</strong> folders. It checks:</p>
+          <ul>
+          <li>Action creators.</li>
+          <li>Reducers + Selectors.</li>
+          <li>Components
+          -- Render
+          -- Snapshot</li>
+          </ul>
+          <p>It uses <a href=\"https://facebook.github.io/jest/\">Jest technology</a> :)</p>
+          <h2>Contributing</h2>
+          <p>This project uses.</p>
+          <ul>
+          <li><a href=\"https://facebook.github.io/react/\">React</a></li>
+          <li><a href=\"https://github.com/facebookincubator/create-react-app\">Create-React-App</a></li>
+          <li><a href=\"https://github.com/ReactTraining/react-router\">React-Router v4.0.0</a></li>
+          <li>React middlewares like:
+          -- <a href=\"https://github.com/gaearon/redux-thunk\">redux-thunk</a>
+          -- <a href=\"https://github.com/evgenyrodionov/redux-logger\">redux-logger</a>
+          -- <a href=\"https://github.com/buunguyen/redux-freeze\">redux-freeze</a>
+          -- <a href=\"https://github.com/arnaudbenard/redux-mock-store\">redux-mock-store</a></li>
+          <li><a href=\"https://facebook.github.io/jest/\">Jest</a></li>
+          </ul>
+          <h2>License</h2>
+          <p>GPL (GNU GENERAL PUBLIC LICENSE)</p>
           ",
           }
         } />
