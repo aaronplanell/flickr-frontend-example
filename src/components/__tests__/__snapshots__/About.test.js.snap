@@ -85,8 +85,8 @@ exports[`test About Snapshot matchs 1`] = `
             http://127.0.0.1:3001
             http://192.168.1.2:3001
           Hit CTRL-C to stop the server
-          
           </code></pre>
+          <p>Forget it and open <code>http://localhost:3001</code>. The CORS configuration of the API Server ban all the IPs excepts one: the localhost.</p>
           <p><strong>Note</strong>: The production mode has only the Redux Thunk middleware.</p>
           <h2>How to test the project?</h2>
           <p>Easy... Just.</p>

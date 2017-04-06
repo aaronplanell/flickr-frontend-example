@@ -68,6 +68,8 @@ Hit CTRL-C to stop the server
 
 ```
 
+Forget it and open `http://localhost:3001`. The CORS configuration of the API Server ban all the IPs excepts one: the localhost.
+
 **Note**: The production mode has only the Redux Thunk middleware.
 
 
