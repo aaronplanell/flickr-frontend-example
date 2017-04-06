@@ -1,6 +1,7 @@
 # flickr-frontend-example
 A frontend application with React for viewing a list of Pockémons grouped by their type.
 It calls to its backend version [flickr-backend-example](https://github.com/aaronplanell/flickr-backend-example/)
+It is a responsive application and uses `@media queries` with a `max-width` of `1024px` (the order of components will change).
 
 
 ## Who is this project for?

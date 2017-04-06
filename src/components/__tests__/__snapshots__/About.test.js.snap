@@ -30,7 +30,7 @@ exports[`test About Snapshot matchs 1`] = `
   <aside
     style={
       Object {
-        "minWidth": "1000px",
+        "minWidth": "1024px",
         "textAlign": "left",
       }
     }>
@@ -40,7 +40,8 @@ exports[`test About Snapshot matchs 1`] = `
           Object {
             "__html": "<h1>flickr-frontend-example</h1>
           <p>A frontend application with React for viewing a list of Pockémons grouped by their type.
-          It calls to its backend version <a href=\"https://github.com/aaronplanell/flickr-backend-example/\">flickr-backend-example</a></p>
+          It calls to its backend version <a href=\"https://github.com/aaronplanell/flickr-backend-example/\">flickr-backend-example</a>.
+          It is a responsive application and uses <code>@media queries</code> with a <code>max-width</code> of <code>1024px</code> (the order of components will change).</p>
           <h2>Who is this project for?</h2>
           <p>It is a good example of how using these tecnologies:</p>
           <ul>

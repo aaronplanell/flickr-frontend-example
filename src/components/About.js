@@ -11,7 +11,7 @@ class About extends Component {
     return (
       <div id="main" className="App">
         <Navigation />
-        <aside style={{minWidth: '1000px', textAlign: 'left'}}>
+        <aside style={{minWidth: '1024px', textAlign: 'left'}}>
           <Markdown source={ABOUT_TEXT} />
         </aside>
       </div>
