@@ -1,10 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { DEFAULT_VIEW_SIZE } from '../../config/constants';
 
 const Navigation = ({selectViewSize, currentViewSize}) => (
   <nav>
-    <a href="/" className="btn">Albums</a>
-    <a href="/about" className="btn">About</a>
+    <Link className='btn' to={`/`} >
+      Albums
+    </Link>
+    <Link className='btn' to={`/about`}>
+      About
+    </Link>
     <input type="range"
       min={DEFAULT_VIEW_SIZE - 2}
       max={DEFAULT_VIEW_SIZE + 2}

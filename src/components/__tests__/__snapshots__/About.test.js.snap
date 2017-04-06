@@ -1,7 +1,47 @@
 exports[`test About Snapshot matchs 1`] = `
-<div>
-  <h1>
-    About
-  </h1>
+<div
+  className="App"
+  id="main">
+  <nav>
+    <a
+      className="btn"
+      href="/"
+      onClick={[Function]}>
+      Albums
+    </a>
+    <a
+      className="btn"
+      href="/about"
+      onClick={[Function]}>
+      About
+    </a>
+    <input
+      max={6}
+      min={2}
+      onChange={[Function]}
+      style={
+        Object {
+          "display": "none",
+        }
+      }
+      type="range"
+      value={undefined} />
+  </nav>
+  <aside
+    style={
+      Object {
+        "minWidth": "500px",
+      }
+    }>
+    <div>
+      <span
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "<h1>flickr-frontend-example</h1>
+          ",
+          }
+        } />
+    </div>
+  </aside>
 </div>
 `;

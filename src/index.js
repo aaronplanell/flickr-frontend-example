@@ -1,7 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route
+} from 'react-router-dom';
 
 import './index.css';
 
@@ -15,8 +18,8 @@ ReactDOM.render(
   <Provider store={store}>
     <Router>
       <div>
-        <Route exact path="/" component={App} />
-        <Route exact path="/about" component={About} />
+        <Route exact path="/" component={App}/>
+        <Route path="/about" component={About}/>
       </div>
     </Router>
   </Provider>,

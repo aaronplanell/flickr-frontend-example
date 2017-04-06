@@ -96,7 +96,7 @@ class App extends Component {
           <Header
             photosets={photosets}
             idPhotoset={params.idPhotoset}
-            selectedPhoto={params.selectedPhoto}            
+            selectedPhoto={params.selectedPhoto}
           />
           <Article
             alert={alert}
